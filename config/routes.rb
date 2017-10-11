@@ -5,6 +5,8 @@ SampleApp::Application.routes.draw do
   # get "static_pages/about"
   # get "static_pages/contact"
   
+  resources :users, only: [:show]
+  
   root 'static_pages#home'
   match  '/help', to: 'static_pages#help', via: 'get'
   match  '/about', to: 'static_pages#about', via: 'get'
