@@ -7,8 +7,14 @@ SampleApp::Application.routes.draw do
   # get "static_pages/about"
   # get "static_pages/contact"
   
-  resources :users, only: [:show, :index, :destroy]
+  resources :users, only: [:show, :index, :destroy] do
+    member do
+      get :following, :followers
+    end
+  end
+  
   resources :microposts, only: [:create, :destroy]
+  resources :relationships, only: [:create, :destroy]
   
   root 'static_pages#home'
   match  '/help', to: 'static_pages#help', via: 'get'
