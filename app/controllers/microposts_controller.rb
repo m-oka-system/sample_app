@@ -25,7 +25,7 @@ class MicropostsController < ApplicationController
   
     def micropost_params
       #@micropost = current_user.microposts.build(id: params[:id])
-      params.require(:micropost).permit(:content)
+      params.require(:micropost).permit(:content, :picture)
     end
     
     def correct_user
